@@ -1,0 +1,12 @@
+*, html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --them-bg-color: #409eff;
+  --text-them-color: #409eff;
+  --text-white-color: #FFFFFF;
+  --text-black--color: #333333;
+}
