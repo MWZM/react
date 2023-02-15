@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+/* 配置全局环境变量并进行引入 index.tsx 或者 app.tsx */
+/* 使用方式 var(全局变量名) */
+
 :root {
   --them-bg-color: #409eff;
   --text-them-color: #409eff;
