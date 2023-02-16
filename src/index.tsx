@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 
 import './style/root.css'
@@ -24,8 +24,10 @@ const root = ReactDOM.createRoot(
  * @BrowserRouter 模式下请求链接都是ip地址：端口/xxx/xxxx
  */
 
+
+// 这里使用 HashRouter 不让打包之后出现404
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <App />
-  </BrowserRouter>
+  </HashRouter>
 );
