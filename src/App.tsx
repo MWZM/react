@@ -1,9 +1,15 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Router from './router/router';
-import request from './utils/request'
 
 function App() {
-  request.get('1')
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    console.log('navigate')
+  },[location.pathname])
+  
   return (
     <div className="App">
       <Router></Router>

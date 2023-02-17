@@ -3,11 +3,16 @@
  */
 import { Outlet } from "react-router-dom"
 
+import './style/layout.scss'
+
 function Layout() {
   return(
-    <div>
-      layout
-      <Outlet/>
+    <div className="layout">
+      <div className="sidebar">layout</div>
+      <div className="container">
+        <nav>nav</nav>
+        <div><Outlet/></div>
+      </div>
     </div>
   )
 }
