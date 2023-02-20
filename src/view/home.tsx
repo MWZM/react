@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 
-function Home() {
+
+function Home():JSX.Element {
   const [params] = useSearchParams()
   const [ date, setDate ] = useState<string>(new Date().toLocaleString())
 
   useEffect(() => {
-    let id = params.get('id')
-    let from = params.get('from')
+    let id:string | null = params.get('id')
+    let from:string | null = params.get('from')
     console.log(id, from)
   }, [])
 
