@@ -11,10 +11,10 @@ import { useRoutes } from 'react-router-dom'
 import Loading from '../components/loading'
 import Layout from '../layout/Layout'
 
-const Home = lazy(() => import('../view/home'))
-const Login = lazy(() => import('../view/login'))
+const Home = lazy(() => import('../view/home/home'))
+const Login = lazy(() => import('../view/login/login'))
 const NotFount = lazy(() => import('../view/notFount'))
-const Main = lazy(() => import('../view/main'))
+const Main = lazy(() => import('../view/main/main'))
 
 const route = [
   {
