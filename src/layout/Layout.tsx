@@ -2,7 +2,8 @@
  * @Outlet 路由占位符号 类似 Vue router-view 组件
  */
 import { Outlet } from "react-router-dom"
-import Sidebar from './sidebar'
+import Sidebar from './Sidebar/Sidebar'
+import Nav from './Nav/Nav'
 
 import './style/layout.scss'
 
@@ -13,7 +14,7 @@ function Layout() {
         <Sidebar></Sidebar>
       </div>
       <div className="container">
-        <nav>nav</nav>
+        <Nav />
         <div><Outlet/></div>
       </div>
     </div>

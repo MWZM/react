@@ -1,0 +1,16 @@
+.sidebar {
+  width: 200px;
+  // logo 样式
+  .menu {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .logo {
+      background-color: var(--them-bg-color);
+      color: var(--text-white-color);
+    }
+    .menu_item {
+      flex: 1;
+    }
+  }
+}

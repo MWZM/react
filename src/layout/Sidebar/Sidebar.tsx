@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Switch } from 'antd';
+import Logo from './Logo'
+
+import '../style/sidebar.scss'
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -44,26 +47,42 @@ const items: MenuItem[] = [
   ]),
 ];
 
+const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+
 const Sidebar: React.FC = () => {
   const [current, setCurrent] = useState('1');
+  const [openKeys, setOpenKeys] = useState(['sub1']);
 
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
     setCurrent(e.key);
   };
 
+  const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
+    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
+      setOpenKeys(keys);
+    } else {
+      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    }
+  };
+
   return (
-    <>
+    <div className='menu'>
+      <Logo />
       <Menu
-        style={{height: '100vh'}}
+        className='menu_item'
+        style={{height: '100%'}}
         onClick={onClick}
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
         defaultOpenKeys={['sub1']}
         selectedKeys={[current]}
         mode="inline"
         theme="dark"
         items={items}
       />
-    </>
+    </div>
   );
 };
 
