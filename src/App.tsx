@@ -12,9 +12,7 @@ function App() {
   },[location.pathname])
   
   return (
-    <div className="App">
-      <Router></Router>
-    </div>
+    <Router></Router>
   );
 }
 

@@ -12,7 +12,7 @@ function Header():JSX.Element {
   
   useEffect(() => {
     timer = setInterval(() => {
-      console.log(count++)
+      
     }, 1000)
   }, [])
 
