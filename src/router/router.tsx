@@ -3,55 +3,38 @@
  * @Suspense 路由看加载进入页面会有延迟，使用组件可优化交互，fallback 属性接受任何在组件加载过程中你想展示的 React 元素
  * @notFound 放在最后用于兜底，当路由不匹配时进入该页面
  * @useRoutes 具体查看 readme
+ * @Navigate 路由重定向
  */
 
-import { lazy, Suspense } from 'react'
+import { lazy } from 'react'
 import { useRoutes } from 'react-router-dom'
+import layout from './layout'
 
-import Loading from '../components/loading'
-import Layout from '../layout/Layout'
+import { lazyload } from './tool'
 
-const Home = lazy(() => import('../view/home'))
-const Login = lazy(() => import('../view/login'))
+const Login = lazy(() => import('../view/login/login'))
 const NotFount = lazy(() => import('../view/notFount'))
-const Main = lazy(() => import('../view/main'))
 
 const route = [
   {
     path: '/login',
-    element: <Login/>
+    hidden: true,
+    element: lazyload(<Login/>)
   },
-  {
-    path: '/',
-    element: <Layout/>,
-    children: [
-      {
-        path: 'home',
-        element: <Home/>
-      },
-      {
-        path: 'main',
-        element: <Main/>
-      }
-    ]
-  },
+  layout,
   {
     path: '*',
-    element: <NotFount/>
+    element: lazyload(<NotFount/>)
   }
 ]
-
-function Router() {
-  return(
-    <Suspense fallback={<Loading></Loading>}>
-      <RouteList/>
-    </Suspense>
-  )
-}
 
 function RouteList() {
   const element = useRoutes(route)
   return element
 }
 
-export default Router
+export default RouteList
+
+export {
+  route
+}

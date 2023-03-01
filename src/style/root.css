@@ -8,9 +8,14 @@
 /* 使用方式 var(全局变量名) */
 
 :root {
-  --them-bg-color: #409eff;
+  --them-bg-color: #1677ff;
   --fill-bg-color: #F9F9F9;
-  --text-them-color: #409eff;
+  --text-them-color: #1677ff;
   --text-white-color: #FFFFFF;
   --text-black--color: #333333;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }

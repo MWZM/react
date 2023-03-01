@@ -1,17 +1,31 @@
 /**
  * @Outlet 路由占位符号 类似 Vue router-view 组件
  */
-import { Outlet } from "react-router-dom"
+
+import { useEffect } from "react"
+import { matchRoutes, Outlet, useLocation } from "react-router-dom"
+import {route} from '../router/router'
+
+import Sidebar from './Sidebar/Sidebar'
+import Nav from './Nav/Nav'
 
 import './style/layout.scss'
 
+
 function Layout() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const path = matchRoutes(route, location.pathname)
+    console.log(path, 'path')
+  }, [location.pathname])
+
   return(
     <div className="layout">
-      <div className="sidebar">layout</div>
+      <Sidebar></Sidebar>
       <div className="container">
-        <nav>nav</nav>
-        <div><Outlet/></div>
+        <Nav />
+        <Outlet/>
       </div>
     </div>
   )

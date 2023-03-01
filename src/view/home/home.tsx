@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 
-function Home() {
+
+function Home():JSX.Element {
   const [params] = useSearchParams()
   const [ date, setDate ] = useState<string>(new Date().toLocaleString())
+  
+  const navigate = useNavigate()
 
   useEffect(() => {
-    let id = params.get('id')
-    let from = params.get('from')
+    let id:string | null = params.get('id')
+    let from:string | null = params.get('from')
     console.log(id, from)
   }, [])
 
@@ -17,9 +20,14 @@ function Home() {
     }, 1000)
   }, [date])
 
+  const gomain = () => {
+    navigate('/main')
+  }
+
   return (
     <div>
       { date }
+      <button onClick={gomain}>go main</button>
     </div>
   )
 }
