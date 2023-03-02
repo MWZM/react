@@ -11,7 +11,6 @@ function Home():JSX.Element {
   useEffect(() => {
     let id:string | null = params.get('id')
     let from:string | null = params.get('from')
-    console.log(id, from)
   }, [])
 
   useEffect(() => {

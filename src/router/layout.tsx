@@ -5,6 +5,7 @@ import { lazyload } from "./tool"
 const Layout = lazy(() => import('../layout/Layout'))
 const Main = lazy(() => import('../view/main/main'))
 const Home = lazy(() => import('../view/home/home'))
+const Article = lazy(() => import('../view/home/article'))
 
 const layout = {
   path: '/',
@@ -15,12 +16,26 @@ const layout = {
       element: <Navigate to='/home'></Navigate>
     },
     {
-      path: 'home',
-      element: lazyload(<Home/>)
+      path: '',
+      title: 'HOME',
+      children: [
+        {
+          path: 'article',
+          title: 'ARTICLE',
+          element: lazyload(<Article/>),
+        },
+        {
+          path: 'home',
+          title: 'HOME',
+          element: lazyload(<Home/>),
+        }
+      ],
     },
     {
       path: 'main',
-      element: lazyload(<Main/>)
+      title: 'MAIN',
+      element: lazyload(<Main/>),
+      children: [],
     }
   ]
 }

@@ -19,11 +19,14 @@ const route = [
   {
     path: '/login',
     hidden: true,
+    title: 'LOGIN',
     element: lazyload(<Login/>)
   },
   layout,
   {
     path: '*',
+    title: '404',
+    hidden: true,
     element: lazyload(<NotFount/>)
   }
 ]
