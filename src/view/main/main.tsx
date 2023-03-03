@@ -12,7 +12,7 @@ function Main():JSX.Element {
   }, [])
 
   const goHome = () => {
-    navigate('/home')
+    navigate('/home/children')
   }
 
   return (

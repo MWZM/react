@@ -23,10 +23,15 @@ function Home():JSX.Element {
     navigate('/main')
   }
 
+  const goarticle = () => {
+    navigate('/home/article')
+  }
+
   return (
     <div>
       { date }
       <button onClick={gomain}>go main</button>
+      <button onClick={goarticle}>go article</button>
     </div>
   )
 }

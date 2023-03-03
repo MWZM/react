@@ -9,7 +9,7 @@ import '../style/sidebar.scss'
 
 
 const Sidebar: React.FC = () => {
-  const [current, setCurrent] = useState('/');
+  const [current, setCurrent] = useState('article');
   const [openKeys, setOpenKeys] = useState(['/home']);
 
   const navigate = useNavigate()
@@ -38,15 +38,16 @@ const Sidebar: React.FC = () => {
       <Logo />
       <Menu
         className='menu_item'
-        style={{height: '100%'}}
-        onClick={onClick}
-        openKeys={openKeys}
-        onOpenChange={onOpenChange}
-        defaultOpenKeys={['main']}
-        selectedKeys={[current]}
         mode="inline"
         theme="dark"
+        style={{height: '100%'}}
+        defaultOpenKeys={['/main']}
+        openKeys={openKeys}
+        selectedKeys={[current]}
         items={items}
+        inlineCollapsed={false}
+        onClick={onClick}
+        onOpenChange={onOpenChange}
       />
     </div>
   );
