@@ -7,8 +7,8 @@
  */
 
 import { lazy } from 'react'
-import { useRoutes } from 'react-router-dom'
-import layout from './layout'
+import { useRoutes, Navigate } from 'react-router-dom'
+import { layout } from './layout'
 
 import { lazyload } from './tool'
 
@@ -19,11 +19,18 @@ const route = [
   {
     path: '/login',
     hidden: true,
+    title: 'LOGIN',
     element: lazyload(<Login/>)
+  },
+  {
+    path: '/',
+    element: <Navigate to='/home'></Navigate>
   },
   layout,
   {
     path: '*',
+    title: '404',
+    hidden: true,
     element: lazyload(<NotFount/>)
   }
 ]
